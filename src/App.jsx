@@ -1,9 +1,54 @@
 import "./App.css";
+import Tracker from "./Tracker/Tracker";
+import { useEffect, useState } from "react";
 
 function App() {
+  const getData = () => {
+    fetch(
+      "data.json",
+
+      {
+        headers: {
+          "Content-Type": "application/json",
+
+          Accept: "application/json",
+        },
+      }
+    )
+      .then(function (response) {
+        return response.json();
+      })
+
+      .then(function (myJson) {
+        console.log(myJson);
+        setData(myJson);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const [data, setData] = useState([]);
+
+  const [timeframe, setTimeframe] = useState("daily");
+
   return (
-    <div className="font-main text-lg">
-      <h1>SANS SERIF</h1>
+    <div className="container mx-auto space-y-4  p-6 font-main text-lg">
+      <button className="bg-slate-300" onClick={() => setTimeframe("daily")}>
+        Daily
+      </button>
+      <button className="bg-slate-300" onClick={() => setTimeframe("weekly")}>
+        Weekly
+      </button>
+      <button className="bg-slate-300" onClick={() => setTimeframe("monthly")}>
+        Monthly
+      </button>
+      {data &&
+        data.length > 0 &&
+        data.map((item, key) => (
+          <Tracker content={item} timeframe={timeframe} />
+        ))}
     </div>
   );
 }
