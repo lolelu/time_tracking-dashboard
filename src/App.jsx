@@ -1,6 +1,7 @@
 import "./App.css";
 import Tracker from "./Tracker/Tracker";
 import { useEffect, useState } from "react";
+import Profile from "./Profile";
 
 function App() {
   const getData = () => {
@@ -34,7 +35,8 @@ function App() {
   const [timeframe, setTimeframe] = useState("daily");
 
   return (
-    <div className="container mx-auto space-y-4  p-6 font-main text-lg">
+    <div className="container mx-auto space-y-4   p-6 font-main text-lg">
+      <Profile />
       <button className="bg-slate-300" onClick={() => setTimeframe("daily")}>
         Daily
       </button>

@@ -1,10 +1,22 @@
 import React from "react";
-import { ReactComponent as Ellipis } from "./icon-ellipsis.svg";
-import WorkImg from "./icon-work.svg";
+import { ReactComponent as Ellipis } from "./assets/icon-ellipsis.svg";
+import WorkImg from "./assets/icon-work.svg";
+import ExerciseImg from "./assets/icon-exercise.svg";
+import PlayImg from "./assets/icon-play.svg";
+import SelfcareImg from "./assets/icon-self-care.svg";
+import SocialImg from "./assets/icon-social.svg";
+import StudyImg from "./assets/icon-study.svg";
 
 const Tracker = (props) => {
+  const returnImage = () => {
+    return "debug";
+  };
+
   return (
-    <div className=" relative overflow-hidden rounded-2xl bg-lightredwork pt-8 text-white shadow-sm shadow-neutralblue-300 duration-500 hover:pt-10">
+    <div
+      id={`ciao ${returnImage()}`}
+      className=" relative overflow-hidden rounded-2xl  bg-lightredwork pt-8 text-white shadow-sm shadow-neutralblue-300 duration-500 hover:pt-10"
+    >
       <img src={WorkImg} alt="" className="absolute -top-3 right-6 " />
       <div className="relative flex cursor-pointer flex-col gap-[0.375rem] bg-neutralblue-300 py-7 px-6 duration-150 hover:bg-neutralblue-500">
         <div className="col-span-2 flex  items-center justify-between font-medium leading-5 ">
